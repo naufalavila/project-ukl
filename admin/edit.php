@@ -2,7 +2,7 @@
     include("../koneksi.php");
 
     if( !isset($_GET['user_ID'])){
-        header('localtion: index2.php');
+        header('location: index.php');
     }
     $id = $_GET['user_ID'];
 

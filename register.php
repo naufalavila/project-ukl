@@ -35,7 +35,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <button class="btn" type="button" name="submit" value="register">Register</button>
+                        <button class="btn" name="submit" >Register</button>
                         <button><a href="index.php">Login here!</a></button>
                     </td>
                 </tr>
@@ -59,7 +59,7 @@
 
         // insert user data into table
         $result = mysqli_query($mysqli, 
-        "INSERT INTO user(nama, username, password, level) VALUES ('$namas', '$usernames', '$passwords', '$levels')");
+        "INSERT INTO user(nama, username, password, level) VALUES ('$namas', '$usernames', ' $passowrds', '$levels')");
     
         // show message when user added
         //echo "Data added succesfully. <a href = 'index.php'>View Data Buku</a>";

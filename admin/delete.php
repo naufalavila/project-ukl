@@ -1,6 +1,6 @@
 <?php
 
-include_once("index.php");
+include_once("../koneksi.php");
 
 $id = $_GET['user_ID'];
 

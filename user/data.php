@@ -8,6 +8,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 nav {
@@ -55,44 +56,9 @@ nav .logo img {
     font-size: 40px;
 }
 
-section {
-    width: 100%;
-    background-color: lightslategray;
-    height: 131vh;
-}
-
-.jukon {
-    width: 98%;
-    padding: 10px 0;
-    background-color: orange;
-    font-weight: 900;
-    font-family: Tahoma;
-    font-size: 20px;
-    text-align: center;
-    margin: auto;
-    position: relative;
-    top: 15px;
-    margin-bottom: 15px;
-}
-
-.cont {
-    position: relative;
-    margin-top: 20px;
-    font-size: 25px;
-}
-
-section .wrapper {
-    margin-left: 20px;
-    position: relative;
-}
-
-.jukon, .cont {
-    color: white;
-}
-
 .footer-1 {
     width: 100%;
-    height: 40px;
+    height: 48px;
     background-color: darkblue;
     color: white;
     font-weight: 900;
@@ -101,6 +67,7 @@ section .wrapper {
     place-items: center;
     padding-top: 9px;
     padding-bottom: 9px;
+    text-transform: capitalize;
 }
 
 section img {
@@ -120,6 +87,55 @@ section img {
     text-align: center;
 }
 
+body {
+    background-color: #9dfae8;
+}
+
+.wrapper {
+    width: 500px;
+    height: 370px;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+    box-shadow: 4px 4px #899190;
+    margin: 22px auto;
+    padding: 30px;
+}
+
+.wrapper h2 {
+    line-height: 2.5;
+    color: #4777fc;
+    text-align: center;
+    font-weight: 650;
+}
+
+.section1 input, .section2 input {
+    width: 200px;
+    padding: 3.5px;
+    border-color: #4777fc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 15px;
+}
+
+.submit input {
+    width: 85px;
+    height: 30px;
+    background-color: lightgrey;
+    color: #3e4045;
+    font-weight: 700;
+    border-color: #3e4045;
+    margin-top: 20px;
+    margin-right: 15px;
+    border-radius: 3.5px;
+}
+
+.submit input:hover {
+    background-color: #3e4045;
+    color: white;
+    transition: .4s;
+}
+
     </style>
 </head>
 <body>
@@ -128,19 +144,44 @@ section img {
         <div class="logo"><img src="logo kesehatan.jpg" alt="Logo Kesehatan"></div>
         <a href="index.php">Article</a>
         <a href="about.php">About</a>
-        <a href="data.php">Poster</a>
+        <a href="data.php">BMI</a>
     </nav>
 
-    <section>
-        <h1 class="jukon">Yuk Minum Air Dulu!</h1>
-        <div class="img-wrapper">
-            <img src="poster menjaga kesehatan.jpg" alt="Poster Manfaat Minum Air Putih" width="620px" height="750px">
-        </div>
-    </section>
+    <div class="wrapper">
+        <form action="data.php" method="POST">
+            <h2>Check Your BMI</h2>
+
+            <div class="section1">
+                <span>Enter Your Height : </span>
+                <input type="text" name="height" autocomplete="off" placeholder="Meter">
+            </div>
+            <div class="section2">
+                <span>Enter Your Weight : </span>
+                <input type="text" name="weight" autocomplete="off" placeholder="Kilogram">
+            </div>
+            <div class="submit">
+                <input type="submit" name="submit" value="Check BMI">
+                <input type="reset" value="Clear">
+            </div>
+
+            <?php
+            $val1 = $_POST['height'];
+            $val2 = $_POST['weight'];
+            $val3 = $val1 * $val1;
+            $mainval = $val2 / $val3;
+
+            $bmi = substr($mainval,0,4);
+
+            echo "Your BMI is ". $mainval . " kg/m2";
+
+            ?>
+        </form>
+    </div>
     
     <footer class="footer-1">
         Thank you for visiting!
     </footer>
+
 </body>
 </body>
 </html>

@@ -107,7 +107,7 @@ footer {
         <div class="logo"><img src="logo kesehatan.jpg" alt="Logo Kesehatan"></div>
         <a href="index.php">Article</a>
         <a href="about.php">About</a>
-        <a href="data.php">Poster</a>
+        <a href="data.php">BMI</a>
     </nav>
 
     <section>
