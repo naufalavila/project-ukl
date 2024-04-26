@@ -35,13 +35,13 @@
 ?>
 
 <tr>
-    <td><?php echo $data['user_ID'] ?></td>
+    <td><?php echo $data['user_id'] ?></td>
     <td><?php echo $data['nama']; ?></td>
     <td><?php echo $data['username']; ?></td>
     <td><?php echo $data['password']; ?></td>
     <td><?php echo $data['level']; ?></td>
-    <td class="edit"><a href='edit.php?id=<?php echo $data['user_ID'];?>'>Edit</a></td>
-    <td class="delete"><a href='delete.php?id= <?php echo $data['user_ID'];?>' background-color(#dff774)>Delete</a></td>
+    <td class="edit"><a href='edit.php?id=<?php echo $data['user_id'];?>'>Edit</a></td>
+    <td class="delete"><a href='delete.php?id=<?php echo $data['user_id'];?>' background-color(#dff774)>Delete</a></td>
 </tr>
 <?php } ?>
 </table>

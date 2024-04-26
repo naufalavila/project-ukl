@@ -1,12 +1,12 @@
 <?php
     include("../koneksi.php");
 
-    if( !isset($_GET['user_ID'])){
+    if( !isset($_GET['id'])){
         header('location: index.php');
     }
-    $id = $_GET['user_ID'];
+    $id = $_GET['id'];
 
-    $result = mysqli_query($mysqli, "SELECT * FROM user WHERE user_ID=$id");
+    $result = mysqli_query($mysqli, "SELECT * FROM user WHERE user_id=$id");
 
     while($user_data = mysqli_fetch_array($result))
     {
@@ -15,7 +15,7 @@
         $password = $user_data ['password'];
         $level = $user_data ['level'];
     }
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +49,7 @@
             <label>Level</label><br>
             <input type="text" name="level" value="<?php echo $level;?>">
         </div>
+        <button type="submit" value="submit">Submit</button>
     </form>
 </body>
 </html>
