@@ -148,34 +148,57 @@ body {
     </nav>
 
     <div class="wrapper">
-        <form action="data.php" method="POST">
-            <h2>Check Your BMI</h2>
+<?php
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "kitasehat";
 
-            <div class="section1">
-                <span>Enter Your Height : </span>
-                <input type="text" name="height" autocomplete="off" placeholder="Meter">
-            </div>
-            <div class="section2">
-                <span>Enter Your Weight : </span>
-                <input type="text" name="weight" autocomplete="off" placeholder="Kilogram">
-            </div>
-            <div class="submit">
-                <input type="submit" name="submit" value="Check BMI">
-                <input type="reset" value="Clear">
-            </div>
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-            <?php
-            $val1 = $_POST['height'];
-            $val2 = $_POST['weight'];
-            $val3 = $val1 * $val1;
-            $mainval = $val2 / $val3;
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-            $bmi = substr($mainval,0,4);
+// Initialize variables
+$bmi_result_message = "";
 
-            echo "Your BMI is ". $mainval . " kg/m2";
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve height and weight from the form
+    $height = $_POST["height"];
+    $weight = $_POST["weight"];
 
-            ?>
-        </form>
+    // Calculate BMI
+    $bmi = $weight / (($height / 100) * ($height / 100));
+    $bmi_result_message = "Your BMI is " . round($bmi, 2) . " kg/cm².";
+
+    // Insert data into the database
+    $sql = "INSERT INTO bmi (weight, height, result) VALUES ('$weight', '$height', '$bmi')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "BMI data inserted successfully.";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close connection
+$conn->close();
+?>
+
+<!-- HTML form -->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    Height (cm): <input type="text" name="height"><br>
+    Weight (kg): <input type="text" name="weight"><br>
+    <input type="submit" value="Submit">
+    
+    <!-- Display BMI result -->
+    <?php echo $bmi_result_message; ?>
+</form>
     </div>
     
     <footer class="footer-1">
@@ -185,3 +208,5 @@ body {
 </body>
 </body>
 </html>
+
+
