@@ -136,6 +136,23 @@ body {
     transition: .4s;
 }
 
+.check-bmi {
+    color: #b0850e;
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.wrapper form input[type=Submit] {
+    width: 60px;
+    height: 22px;
+    background-color: lightcyan;
+    color: green;
+    margin-top: 5px;
+    border: 2px solid darkgreen;
+    font-size: 14px;
+}
+
     </style>
 </head>
 <body>
@@ -147,59 +164,61 @@ body {
         <a href="data.php">BMI</a>
     </nav>
 
-    <div class="wrapper">
-<?php
-// Database connection parameters
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "kitasehat";
+<div class="wrapper">
+    <?php
+    // Database connection parameters
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "kitasehat";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Initialize variables
-$bmi_result_message = "";
-
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve height and weight from the form
-    $height = $_POST["height"];
-    $weight = $_POST["weight"];
-
-    // Calculate BMI
-    $bmi = $weight / (($height / 100) * ($height / 100));
-    $bmi_result_message = "Your BMI is " . round($bmi, 2) . " kg/cm².";
-
-    // Insert data into the database
-    $sql = "INSERT INTO bmi (weight, height, result) VALUES ('$weight', '$height', '$bmi')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "BMI data inserted successfully.";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
-}
 
-// Close connection
-$conn->close();
-?>
+    // Initialize variables
+    $bmi_result_message = "";
 
-<!-- HTML form -->
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    Height (cm): <input type="text" name="height"><br>
-    Weight (kg): <input type="text" name="weight"><br>
-    <input type="submit" value="Submit">
-    
-    <!-- Display BMI result -->
-    <?php echo $bmi_result_message; ?>
-</form>
-    </div>
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve height and weight from the form
+        $height = $_POST["height"];
+        $weight = $_POST["weight"];
+
+        // Calculate BMI
+        $bmi = $weight / (($height / 100) * ($height / 100));
+        $bmi_result_message = "Your BMI is " . round($bmi, 2) . " kg/cm².";
+
+        // Insert data into the database
+        $sql = "INSERT INTO bmi (weight, height, result) VALUES ('$weight', '$height', '$bmi')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "BMI data inserted successfully.";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+
+    // Close connection
+    $conn->close();
+    ?>
+
+    <!-- HTML form -->
+    <h2 class="check-bmi">CHECK BMI</h2>
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        Height (cm): <input type="text" name="height"><br>
+        Weight (kg): <input type="text" name="weight"><br>
+        <input type="submit" value="Submit">
+            
+        <!-- Display BMI result -->
+        <?php echo $bmi_result_message; ?>
+    </form>
+</div>
     
     <footer class="footer-1">
         Thank you for visiting!
