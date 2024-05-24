@@ -58,7 +58,7 @@
         include_once("koneksi.php");
 
         // insert user data into table
-        $result = mysqli_query($mysqli, 
+        $result = mysqli_query($conn, 
         "INSERT INTO user(nama, username, password, level) VALUES ('$namas', '$usernames', ' $passowrds', '$levels')");
     
         // show message when user added

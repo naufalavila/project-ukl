@@ -3,10 +3,10 @@
 session_start();
 include 'koneksi.php';
 
-$username = $_POST['user'];
-$password = $_POST['pass'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-$login = mysqli_query($mysqli,"select * from user where username='$username' and password='$password'");
+$login = mysqli_query($conn,"select * from user where username='$username' or password='$password'");
 $cek = mysqli_num_rows($login);
 
 if($cek > 0){

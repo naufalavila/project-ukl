@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Membuat Halaman Login</title>
     <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: white;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+        }
 
-body {
-    background-color: #5bb839;
-}
+        body {
+            background-color: #5bb839;
+        }
 
-button {
-    background-color: darkolivegreen;
-    outline: none;
-    border: none;
-}
+        button {
+            background-color: darkgreen;
+            outline: none;
+            border: none;
+        }
 
-button, a {
-    text-decoration: none;
-}
+        button, a {
+            text-decoration: none;
+        }
 
-.container form input {
-    color: black;
-}
+        .container form input {
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -36,8 +36,8 @@ button, a {
         <h1 class="login">Login Your Account</h1><br>
         
         <form class="form" action="login.php" method="post">
-            <input type="text" name="user" placeholder="username" required>
-            <input type="password" name="pass" placeholder="Password" required><br>
+            <input type="text" name="username" placeholder="username" required>
+            <input type="password" name="password" placeholder="Password" required><br>
             <button type="submit">Login</button>
         </form>
 

@@ -197,8 +197,8 @@ main h1 {
 }
 
 .cara-4 img {
-    width: 447px;
-    height: inherit;
+    width: 322px;
+    height: 250px;
   
 }
 
@@ -308,7 +308,7 @@ main h1 {
         <p>Dengan menjaga jarak, kemungkinan anda menghirup tetesan dan bersentuhan dengan permukaan yang terkontaminasi dan orang yang terinfeksi di luar rumah pun turut berkurang. Menjaga jarak juga sangat penting bagi orang-orang yang berisiko lebih tinggi terkena penyakit parah akibat COVID-19. Kita harus bisa menjaga jarak dengan orang lain saat kita sedang berkomunikasi atau berpapasan.</p>
     </div>
     <div class="cara-4">
-       <img src="menjauhi kerumunan.jpg" alt="Menjauhi Kerumunan">
+       <img src="qwerty.jpg" alt="Menjauhi Kerumunan">
         <p>Dengan menghindari kerumunan itu artinya sama dengan melindungi orang rentan seperti lansia dan orang dengan penyakit kronis. Sebab jika orang rentan tersebut tertular virus corona akan berakibat fatal. Ini juga merupakan salah satu bentuk upaya kita dalam menghindari virus COVID</p>
     </div>
     <div class="cara-5">

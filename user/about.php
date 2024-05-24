@@ -65,7 +65,6 @@ section {
 .description {
     box-sizing: border-box;
     padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 article {
@@ -139,6 +138,7 @@ section p {
                 <br><a href="#" class= "community">https://discord.com/</a>
                 <br><a href="#" class= "community">https://web.telegram.org/</a>
                 <br><a href="#" class= "community">https://web.whatsapp.com/</a>
+                <br><a href="/halamanlogin/index.php">Kembali Ke Login</a>
             </div>
         </article>
     </section>
