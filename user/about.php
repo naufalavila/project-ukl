@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us - KitaSehat</title>
     <style>
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
         }
 
         nav {
@@ -28,11 +34,13 @@
             place-items: center;
             color: beige;
             font-weight: bold;
-            
+            text-decoration: none;
+            transition: background-color 0.3s;
         }
 
         nav a:hover {
-            cursor: grab;
+            background-color: rgb(20, 180, 93);
+            cursor: pointer;
         }
 
         nav .logo img {
@@ -46,7 +54,6 @@
             height: 60px;
             display: grid;
             place-items: center;
-
         }
 
         .judul h1 {
@@ -56,65 +63,78 @@
         }
 
         section {
-            width: initial;
+            width: 100%;
             background-color: lightgrey;
-            height: 450px;
             padding-top: 18px;
         }
 
         .description {
             box-sizing: border-box;
             padding-top: 10px;
+            text-align: justify;
         }
 
         article {
             width: 1200px;
             background-color: skyblue;
-            height: 435px;
             margin: auto;
-            position: static;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         section h1 {
             width: 90%;
             text-align: center;
             font-size: 25px;
-            padding: 3px 0;
+            padding: 10px;
             background-color: orange;
             margin: auto;
-            position: relative;
-            top: 14px;
         }
 
         section div {
             width: 1100px;
-            padding-left: 15px;
-            padding-right: 15px;
-            margin-top: 35px;
+            margin: 35px auto;
             background-color: lightgreen;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 15px;
         }
 
         section p {
-            text-align: justify;
-            text-justify: inter-word;
+            margin-bottom: 10px;
         }
 
+        section a.community {
+            display: block;
+            margin-bottom: 5px;
+            color: blue;
+            text-decoration: none;
+        }
 
-        /* FOOTER */
+        section a.community:hover {
+            text-decoration: underline;
+        }
 
-        .footer-1 {
-            width: 100%;
-            height: 40px;
+        footer {
             background-color: darkblue;
             color: white;
+            text-align: center;
+            padding: 15px 0;
             font-weight: 900;
             font-family: Arial, Helvetica, sans-serif;
-            display: grid;
-            place-items: center;
-            padding-top: 9px;
-            padding-bottom: 9px;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ccc;
         }
 
         .logout-button {
@@ -153,14 +173,23 @@
                 <br><br>Oh ya, buat kalian yang belum tahu tentang mengapa sih website ini dibuat dan ditujukan kepada kalian? Well, sebenarnya website ini dibuat oleh team kami bukan dengan tanpa alasan. Melainkan bahwa, untuk bisa mengedukasi para pengunjung atau user mengenai pentingnya menjalani hidup sehat di mana pun dan kapan pun kita berada. Dengan begitu, mereka dapat menambah wawasan mereka tentang pandangan hidup sehat yang lebih baik. 
                 <br><br>Website yang bertemakan industri kesehatan ini mulai dibuat oleh team kreator kami pada tanggal 1 Januari hingga tanggal 10 Januari 2024. Hingga sekarang, kami sedang berusaha semaksimal mungkin untuk mengembangkan web "KitaSehat" kami agar bisa menjadi maju untuk waktu kedepannya. Bila ada kritik atau saran yang ingin disampaikan, mohon untuk kontak kami! Sekian, terimakasih.</p>
                 <br><br>COME JOIN OUR COMMUNITY!!
-                <br><a href="#" class= "community">https://discord.com/</a>
-                <br><a href="#" class= "community">https://web.telegram.org/</a>
-                <br><a href="#" class= "community">https://web.whatsapp.com/</a>
+                <br><a href="#" class="community">https://discord.com/</a>
+                <br><a href="#" class="community">https://web.telegram.org/</a>
+                <br><a href="#" class="community">https://web.whatsapp.com/</a>
                 <br><a href="/halamanlogin/index.php">Kembali Ke Login</a>
             </div>
         </article>
     </section>
 
-    <footer class="footer-1">Thank you for visiting!</footer>
+    <footer>
+        <p>Thank you for visiting!</p>
+        <p>Sosial Media Kami :</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Facebook</a> |
+            <a href="#" target="_blank">Instagram</a> |
+            <a href="#" target="_blank">Telegram</a> |
+            <a href="#" target="_blank">YouTube</a>
+        </div>
+    </footer>
 </body>
 </html>

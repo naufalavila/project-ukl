@@ -140,11 +140,11 @@ $sql = mysqli_query($conn, $query);
     <header class="header">VIEW TABEL USER</header>
     
     <div class="button-container">
-        <a class="page" href="http://localhost/kitasehat/admin/index.php"><button>View Table User</button></a>
-        <a class="page" href="http://localhost/kitasehat/admin/bmicrud.php"><button>View Table BMI</button></a>
-        <a class="page" href="http://localhost/kitasehat/admin/articleindex.php"><button>View Table Article</button></a>
+        <a class="page" href="index.php"><button>View Table User</button></a>
+        <a class="page" href="bmicrud.php"><button>View Table BMI</button></a>
+        <a class="page" href="articleindex.php"><button>View Table Article</button></a>
         <a href="edit.php" class="create-btn">Add Here</a>
-        <a href="http://localhost/kitasehat/index.php" class="logout-btn">Logout</a>
+        <a href="../index.php" class="logout-btn">Logout</a>
     </div>
 
     <table>

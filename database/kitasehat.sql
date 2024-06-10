@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2024 at 03:53 PM
+-- Generation Time: Jun 10, 2024 at 03:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -65,7 +65,8 @@ CREATE TABLE `bmi` (
 INSERT INTO `bmi` (`bmi_ID`, `weight`, `height`, `result`, `user_ID`) VALUES
 (24, 50.00, 150.00, 22.22, 105),
 (25, 45.00, 169.00, 15.76, 124),
-(27, 60.00, 175.00, 19.59, 105);
+(27, 60.00, 175.00, 19.59, 105),
+(28, 65.00, 159.00, 25.71, 105);
 
 -- --------------------------------------------------------
 
@@ -86,13 +87,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_ID`, `nama`, `username`, `password`, `level`) VALUES
-(105, 'user', 'user', 'user', 'user'),
-(111, 'mimin', 'mimin', 'mimin', 'admin'),
-(114, 'Garfield', 'Garfield Junior', 'garfield 123', 'user'),
-(119, 'abc', 'abc', 'abc', 'admin'),
-(123, 'welcome', 'welcome', 'welcome', 'admin'),
-(124, 'a', 'a', 'a', 'user'),
-(125, 'admin', 'admin', 'admin', 'admin');
+(129, 'u', 'u', 'u', 'user'),
+(130, 'a', 'a', 'a', 'admin'),
+(132, 'test', 'test', 'test', 'admin'),
+(133, 'guest', 'guest', 'guest', 'user');
 
 --
 -- Indexes for dumped tables
@@ -132,13 +130,13 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT for table `bmi`
 --
 ALTER TABLE `bmi`
-  MODIFY `bmi_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `bmi_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- Constraints for dumped tables

@@ -88,18 +88,6 @@
             margin-left: 15px;
         }
 
-        footer {
-            width: 100%;
-            height: 100px;
-            background-color: rgb(82, 80, 80);
-            font-size: 22px;
-            display: grid;
-            place-items: center;
-            color: white;
-            font-weight: bold;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
         .logout-button {
             background-color: #f44336;
             color: white;
@@ -113,6 +101,30 @@
 
         .logout-button:hover {
             background-color: #d32f2f;
+        }
+
+        footer {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ccc;
         }
     </style>
 </head>
@@ -146,6 +158,15 @@
 
     </section>
 
-    <footer>Thanks For Visiting Us!</footer>
+    <footer>
+        <p>Thank you for visiting!</p>
+        <p>Sosial Media Kami :</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Facebook</a> |
+            <a href="#" target="_blank">Instagram</a> |
+            <a href="#" target="_blank">Telegram</a> |
+            <a href="#" target="_blank">YouTube</a>
+        </div>
+    </footer>
 
 </body>

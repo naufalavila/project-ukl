@@ -6,99 +6,111 @@
     <title>My Profile</title>
     <link rel="stylesheet" href="profil.css">
     <style>
-* {
-    margin: 0;
-    padding: 0;
-}
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-nav {
-    width: 100%;
-    height: 110px;
-    background-color: rgb(49, 214, 165);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+        nav {
+            width: 100%;
+            height: 110px;
+            background-color: rgb(49, 214, 165);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
 
-nav a {
-    width: 140px;
-    height: 50px;
-    background-color: rgb(24, 199, 103);
-    border: 2px solid grey;
-    display: grid;
-    place-items: center;
-    color: beige;
-    font-weight: bold;
-    
-}
+        nav a {
+            width: 140px;
+            height: 50px;
+            background-color: rgb(24, 199, 103);
+            border: 2px solid grey;
+            display: grid;
+            place-items: center;
+            color: beige;
+            font-weight: bold;
+            
+        }
 
-nav a:hover {
-    cursor: grab;
-}
+        nav a:hover {
+            cursor: grab;
+        }
 
-.judul {
-    background-color: rgb(80, 167, 138);
-    width: 250px;
-    height: 60px;
-    display: grid;
-    place-items: center;
+        .judul {
+            background-color: rgb(80, 167, 138);
+            width: 250px;
+            height: 60px;
+            display: grid;
+            place-items: center;
 
-}
+        }
 
-img {
-    width: 80px;
-    height: 80px;
-}
+        img {
+            width: 80px;
+            height: 80px;
+        }
 
-.judul h1 {
-    color: beige;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 40px;
-}
+        .judul h1 {
+            color: beige;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 40px;
+        }
 
-section h1 {
-    background-color: orange;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    width: 100%;
-    text-align: center;
-    font-size: 32px;
-    font-family: sans-serif;
-}
+        section h1 {
+            background-color: orange;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            width: 100%;
+            text-align: center;
+            font-size: 32px;
+            font-family: sans-serif;
+        }
 
-.profil {
-    width: 100%;
-    height: 10.5cm;
-    padding: 0px;
-    background-color: rgb(228, 228, 228);
-}
+        .profil {
+            width: 100%;
+            height: 10.5cm;
+            padding: 0px;
+            background-color: rgb(228, 228, 228);
+        }
 
-.description {
-    margin-top: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: rgb(105, 79, 79);
-    width: 98%;
-}
+        .description {
+            margin-top: 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background-color: rgb(105, 79, 79);
+            width: 98%;
+        }
 
-.data {
-    color: white;
-    font-weight: bold;
-    font-size: 25px;
-    margin-left: 15px;
-}
+        .data {
+            color: white;
+            font-weight: bold;
+            font-size: 25px;
+            margin-left: 15px;
+        }
 
-footer {
-    width: 100%;
-    height: 100px;
-    background-color: rgb(82, 80, 80);
-    font-size: 22px;
-    display: grid;
-    place-items: center;
-    color: white;
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-}
+        footer {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -128,6 +140,15 @@ footer {
 
     </section>
 
-    <footer>Thanks For Visiting Us!</footer>
+    <footer>
+        <p>Thank you for visiting!</p>
+        <p>Sosial Media Kami :</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Facebook</a> |
+            <a href="#" target="_blank">Instagram</a> |
+            <a href="#" target="_blank">Telegram</a> |
+            <a href="#" target="_blank">YouTube</a>
+        </div>
+    </footer>
 
 </body>

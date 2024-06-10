@@ -114,19 +114,6 @@ $conn->close();
             font-size: 40px;
         }
 
-        .footer-1 {
-            width: 100%;
-            height: 48px;
-            background-color: darkblue;
-            color: white;
-            font-weight: 900;
-            font-family: Arial, Helvetica, sans-serif;
-            display: grid;
-            place-items: center;
-            padding: 9px 0;
-            text-transform: capitalize;
-        }
-
         .wrapper {
             width: 90%;
             max-width: 500px;
@@ -205,6 +192,30 @@ $conn->close();
         .logout-button:hover {
             background-color: #d32f2f;
         }
+
+        footer {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -237,8 +248,15 @@ $conn->close();
         </form>
     </div>
     
-    <footer class="footer-1">
-        Thank you for visiting!
+    <footer>
+        <p>Thank you for visiting!</p>
+        <p>Sosial Media Kami :</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Facebook</a> |
+            <a href="#" target="_blank">Instagram</a> |
+            <a href="#" target="_blank">Telegram</a> |
+            <a href="#" target="_blank">YouTube</a>
+        </div>
     </footer>
 </body>
 </html>
