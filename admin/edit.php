@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
     include ("../koneksi.php");
 
@@ -8,7 +6,6 @@
     $username = '';
     $password = '';
     $level = '';
-
 
     if(isset($_GET['ubah'])) {
         $userid = $_GET['ubah'];
@@ -22,78 +19,94 @@
         $username = $hasil['username'];
         $password = $hasil['password'];
         $level = $hasil['level'];
-
-        
-        //var_dump($hasil);
-        //die();
     }
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user add</title>
+    <title>User Add</title>
     <style>
-        form .container label {
-            font-size: 18px;
-            font-weight: 600px;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-
-        form .container input {
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container {
             margin-bottom: 15px;
-            padding-left: 5px;
         }
-
+        .container label {
+            font-size: 18px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
         .button, form a {
-            background-color: #9341e0;
+            background-color: #28a745;
             color: white;
             font-weight: 600;
             margin-right: 7px;
             border: none;
-            border-radius: 15px;
-            padding: 5px 10px;
-            
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover, form a:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
     <form action="proses.php" method="POST">
-        <input type="hidden" value = "<?php echo $userid; ?>" name="user_id">
+        <input type="hidden" value="<?php echo $userid; ?>" name="user_id">
         
         <div class="container">
-            <label>Nama :</label><br>
-            <input type="text" name="nama" value = "<?php echo $nama; ?>" placeholder="your short name">
+            <label>Nama:</label>
+            <input type="text" name="nama" value="<?php echo $nama; ?>" placeholder="Your short name">
         </div>
         
         <div class="container">
-            <label>Username :</label><br>
-            <input type="text" name="username" value = "<?php echo $username; ?>" placeholder="username">
+            <label>Username:</label>
+            <input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
         </div>
           
         <div class="container">
-            <label>Password :</label><br>
-            <input type="text" name="password" value = "<?php echo $password; ?>" placeholder="password">
+            <label>Password:</label>
+            <input type="text" name="password" value="<?php echo $password; ?>" placeholder="Password">
         </div>
 
         <div class="container">
-            <label>Level :</label><br>
-            <input type="text" name="level" value = "<?php echo $level; ?>" placeholder="admin or user">
+            <label>Level:</label>
+            <input type="text" name="level" value="<?php echo $level; ?>" placeholder="Admin or User">
         </div>
             
-        <?php
-        if(isset($_GET['ubah'])) {
-        ?>
+        <?php if(isset($_GET['ubah'])) { ?>
             <button class="button" type="submit" name="useraksi" value="edit">Edit</button>
-        <?php
-            } else {
-        ?>
+        <?php } else { ?>
             <button class="button" type="submit" name="useraksi" value="tambah">Tambah</button>
-        <?php
-            }
-        ?>
+        <?php } ?>
         
-        <a href="index.php" type="button">Back</a>
+        <a href="index.php">Back</a>
     </form>
 </body>
 </html>

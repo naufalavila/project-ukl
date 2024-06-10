@@ -5,117 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-* {
-    margin: 0;
-    padding: 0;
-}
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-nav {
-    width: 100%;
-    height: 110px;
-    background-color: rgb(49, 214, 165);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+        nav {
+            width: 100%;
+            height: 110px;
+            background-color: rgb(49, 214, 165);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
 
-nav a {
-    width: 140px;
-    height: 50px;
-    background-color: rgb(24, 199, 103);
-    border: 2px solid grey;
-    display: grid;
-    place-items: center;
-    color: beige;
-    font-weight: bold;
-    
-}
+        nav a {
+            width: 140px;
+            height: 50px;
+            background-color: rgb(24, 199, 103);
+            border: 2px solid grey;
+            display: grid;
+            place-items: center;
+            color: beige;
+            font-weight: bold;
+            
+        }
 
-nav a:hover {
-    cursor: grab;
-}
+        nav a:hover {
+            cursor: grab;
+        }
 
-nav .logo img {
-    width: 80px;
-    height: 80px;
-}
+        nav .logo img {
+            width: 80px;
+            height: 80px;
+        }
 
-.judul {
-    background-color: rgb(80, 167, 138);
-    width: 250px;
-    height: 60px;
-    display: grid;
-    place-items: center;
+        .judul {
+            background-color: rgb(80, 167, 138);
+            width: 250px;
+            height: 60px;
+            display: grid;
+            place-items: center;
 
-}
+        }
 
-.judul h1 {
-    color: beige;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 40px;
-}
+        .judul h1 {
+            color: beige;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 40px;
+        }
 
-section {
-    width: initial;
-    background-color: lightgrey;
-    height: 450px;
-    padding-top: 18px;
-}
+        section {
+            width: initial;
+            background-color: lightgrey;
+            height: 450px;
+            padding-top: 18px;
+        }
 
-.description {
-    box-sizing: border-box;
-    padding-top: 10px;
-}
+        .description {
+            box-sizing: border-box;
+            padding-top: 10px;
+        }
 
-article {
-    width: 1200px;
-    background-color: skyblue;
-    height: 435px;
-    margin: auto;
-    position: static;
-}
+        article {
+            width: 1200px;
+            background-color: skyblue;
+            height: 435px;
+            margin: auto;
+            position: static;
+        }
 
-section h1 {
-    width: 90%;
-    text-align: center;
-    font-size: 25px;
-    padding: 3px 0;
-    background-color: orange;
-    margin: auto;
-    position: relative;
-    top: 14px;
-}
+        section h1 {
+            width: 90%;
+            text-align: center;
+            font-size: 25px;
+            padding: 3px 0;
+            background-color: orange;
+            margin: auto;
+            position: relative;
+            top: 14px;
+        }
 
-section div {
-    width: 1100px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 35px;
-    background-color: lightgreen;
-    margin-left: auto;
-    margin-right: auto;
-}
+        section div {
+            width: 1100px;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-top: 35px;
+            background-color: lightgreen;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-section p {
-    text-align: justify;
-    text-justify: inter-word;
-}
+        section p {
+            text-align: justify;
+            text-justify: inter-word;
+        }
 
 
-/* FOOTER */
+        /* FOOTER */
 
-.footer-1 {
-    width: 100%;
-    height: 40px;
-    background-color: darkblue;
-    color: white;
-    font-weight: 900;
-    font-family: Arial, Helvetica, sans-serif;
-    display: grid;
-    place-items: center;
-    padding-top: 9px;
-    padding-bottom: 9px;
-}
+        .footer-1 {
+            width: 100%;
+            height: 40px;
+            background-color: darkblue;
+            color: white;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+            display: grid;
+            place-items: center;
+            padding-top: 9px;
+            padding-bottom: 9px;
+        }
+
+        .logout-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
@@ -125,6 +140,9 @@ section p {
         <a href="index.php">Article</a>
         <a href="about.php">About</a>
         <a href="data.php">BMI</a>
+        <form action="logout.php" method="POST">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
     </nav>
 
     <section>

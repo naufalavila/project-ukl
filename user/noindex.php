@@ -284,33 +284,15 @@ $result = $conn->query("SELECT * FROM article");
             font-size: 15px;
             line-height: 30px;
         }
-
-        .logout-button {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .logout-button:hover {
-            background-color: #d32f2f;
-        }
     </style>
 </head>
 <body>
     <nav>
         <div class="judul"><h1>KitaSehat</h1></div>
         <div class="logo"><img src="logo kesehatan.jpg" alt="Logo Kesehatan"></div>
-        <a href="profil.php">My Profile</a>
-        <a href="about.php">About</a>
-        <a href="data.php">BMI</a>
-        <form action="logout.php" method="POST">
-            <button type="submit" class="logout-button">Logout</button>
-        </form>
+        <a href="noprofil.php">My Profile</a>
+        <a href="noabout.php">About</a>
+        <a href="../register.php">Register</a>
     </nav>
 
     <main>

@@ -1,20 +1,77 @@
+<?php
+// Mulai session di awal file
+session_start();
+include ('../koneksi.php');
+
+// Inisialisasi variabel pesan hasil BMI
+$bmi_result_message = "";
+
+// Periksa apakah form disubmit
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Ambil tinggi dan berat dari form
+    $height = $_POST["height"];
+    $weight = $_POST["weight"];
+
+    // Hitung BMI
+    $bmi = $weight / (($height / 100) * ($height / 100));
+    $bmi = round($bmi, 2);
+
+    // Tentukan kategori BMI
+    if ($bmi < 18.5) {
+        $category = "Underweight";
+    } elseif ($bmi >= 18.5 && $bmi < 24.9) {
+        $category = "Normal weight";
+    } elseif ($bmi >= 25 && $bmi < 29.9) {
+        $category = "Overweight";
+    } else {
+        $category = "Obesity";
+    }
+
+    // Tampilkan hasil BMI dan kategori
+    $bmi_result_message = "Your BMI is " . $bmi . " kg/m². You are " . $category . ".";
+
+    // Ambil user_ID dari session
+    $user_ID = $_SESSION['user_ID'];
+
+    // Masukkan data ke dalam database
+    $sql = "INSERT INTO bmi (weight, height, result, user_ID) VALUES ('$weight', '$height', '$bmi', '$user_ID')";
+
+    if ($conn->query($sql) === TRUE) {
+        //echo "BMI data inserted successfully.";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Tutup koneksi
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BMI Calculator</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
         }
 
         nav {
             width: 100%;
             height: 110px;
-            background-color: rgb(49, 214, 165);
+            background-color: #31d6a5;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -23,17 +80,19 @@
         nav a {
             width: 140px;
             height: 50px;
-            background-color: rgb(24, 199, 103);
+            background-color: #18c767;
             border: 2px solid grey;
             display: grid;
             place-items: center;
             color: beige;
             font-weight: bold;
-            
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
         nav a:hover {
-            cursor: grab;
+            background-color: #14a357;
+            cursor: pointer;
         }
 
         nav .logo img {
@@ -42,12 +101,11 @@
         }
 
         .judul {
-            background-color: rgb(80, 167, 138);
+            background-color: #50a78a;
             width: 250px;
             height: 60px;
             display: grid;
             place-items: center;
-
         }
 
         .judul h1 {
@@ -65,40 +123,18 @@
             font-family: Arial, Helvetica, sans-serif;
             display: grid;
             place-items: center;
-            padding-top: 9px;
-            padding-bottom: 9px;
+            padding: 9px 0;
             text-transform: capitalize;
         }
 
-        section img {
-            position: static;
-            margin-top: 15px;
-            margin-bottom: 25px;
-            margin:auto;
-            width: 570px;
-            height: 120vh;
-        }
-
-        .img-wrapper {
-            width: 840px;
-            height: 100%;
-            background-color: lightskyblue;
-            margin: auto;
-            text-align: center;
-        }
-
-        body {
-            background-color: #9dfae8;
-        }
-
         .wrapper {
-            width: 500px;
-            height: 370px;
+            width: 90%;
+            max-width: 500px;
             background-color: white;
             font-family: 'Roboto', sans-serif;
             border-radius: 10px;
-            box-shadow: 4px 4px #899190;
-            margin: 22px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
             padding: 30px;
         }
 
@@ -107,52 +143,68 @@
             color: #4777fc;
             text-align: center;
             font-weight: 650;
+            margin-bottom: 20px;
         }
 
-        .section1 input, .section2 input {
-            width: 200px;
-            padding: 3.5px;
-            border-color: #4777fc;
-            border-radius: 4px;
-            outline: none;
-            font-size: 15px;
+        .wrapper form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .submit input {
-            width: 85px;
-            height: 30px;
-            background-color: lightgrey;
-            color: #3e4045;
-            font-weight: 700;
-            border-color: #3e4045;
-            margin-top: 20px;
-            margin-right: 15px;
-            border-radius: 3.5px;
+        .wrapper form label {
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .submit input:hover {
-            background-color: #3e4045;
+        .wrapper form input[type=text] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .wrapper form input[type=submit] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4777fc;
             color: white;
-            transition: .4s;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .check-bmi {
-            color: #b0850e;
-            margin: auto;
-            padding-top: 5px;
-            padding-bottom: 5px;
+        .wrapper form input[type=submit]:hover {
+            background-color: #365bb5;
         }
 
-        .wrapper form input[type=Submit] {
-            width: 60px;
-            height: 22px;
-            background-color: lightcyan;
-            color: green;
-            margin-top: 5px;
-            border: 2px solid darkgreen;
-            font-size: 14px;
+        .wrapper .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
         }
 
+        .logout-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
@@ -162,70 +214,31 @@
         <a href="index.php">Article</a>
         <a href="about.php">About</a>
         <a href="data.php">BMI</a>
+        <form action="logout.php" method="POST">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
     </nav>
 
-<div class="wrapper">
-    <?php
-    // Database connection parameters
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "kitasehat";
+    <div class="wrapper">
+        <!-- HTML form -->
+        <h2 class="check-bmi">CHECK BMI</h2>
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="height">Height (cm):</label>
+            <input type="text" name="height" id="height" required>
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+            <label for="weight">Weight (kg):</label>
+            <input type="text" name="weight" id="weight" required>
 
-    // Initialize variables
-    $bmi_result_message = "";
+            <input type="submit" value="Submit">
 
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Retrieve height and weight from the form
-        $height = $_POST["height"];
-        $weight = $_POST["weight"];
-
-        // Calculate BMI
-        $bmi = $weight / (($height / 100) * ($height / 100));
-        $bmi_result_message = "Your BMI is " . round($bmi, 2) . " kg/cm².";
-
-        // Insert data into the database
-        $sql = "INSERT INTO bmi (weight, height, result) VALUES ('$weight', '$height', '$bmi')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "BMI data inserted successfully.";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
-
-    // Close connection
-    $conn->close();
-    ?>
-
-    <!-- HTML form -->
-    <h2 class="check-bmi">CHECK BMI</h2>
-
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        Height (cm): <input type="text" name="height"><br>
-        Weight (kg): <input type="text" name="weight"><br>
-        <input type="submit" value="Submit">
-            
-        <!-- Display BMI result -->
-        <?php echo $bmi_result_message; ?>
-    </form>
-</div>
+            <!-- Display BMI result -->
+            <div class="result"><?php echo $bmi_result_message; ?></div>
+        </form>
+    </div>
     
     <footer class="footer-1">
         Thank you for visiting!
     </footer>
-
-</body>
 </body>
 </html>
-
-

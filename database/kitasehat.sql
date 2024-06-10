@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2024 at 08:50 AM
+-- Generation Time: Jun 09, 2024 at 03:53 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,7 +31,7 @@ CREATE TABLE `article` (
   `article_ID` int(11) NOT NULL,
   `nama_article` varchar(200) DEFAULT NULL,
   `rilis_article` date DEFAULT NULL,
-  `user_ID` int(11) DEFAULT NULL
+  `user_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,11 +39,10 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`article_ID`, `nama_article`, `rilis_article`, `user_ID`) VALUES
-(1, '7 Tips Untuk Menjaga Kesehatan Mental', '2024-05-20', NULL),
-(2, '5 Permainan Olahraga Yang Baik dalam Mengasah Otak Dan Pikiran', '2024-05-21', NULL),
-(3, 'Yuk Ketahi Tentang Apa Itu Bodybuilding', '2024-05-22', NULL),
-(4, 'Apa Saja Bahayanya Merokok Bagi Tubuh Kita?', '2024-05-23', NULL),
-(5, 'Inilah Daftar Buah Buahan Yang Kaya Akan Vitamin A', '2024-05-24', NULL);
+(11, 'Cara Atasi Kekurangan Darah', '2024-06-19', 125),
+(12, 'Yuk Mari Jaga Kesehatan Fisik Tubuh Dengan Aktifitas Ini!', '2024-06-25', 125),
+(13, 'Ternyata, Beginilah Cara Atasi Stress Yang Berlebihan Dengan Simpel', '2024-06-28', 125),
+(14, 'Menjaga Kesehatan Melalui 5M', '2024-06-27', 123);
 
 -- --------------------------------------------------------
 
@@ -56,7 +55,7 @@ CREATE TABLE `bmi` (
   `weight` decimal(5,2) NOT NULL,
   `height` decimal(5,2) NOT NULL,
   `result` decimal(5,2) DEFAULT NULL,
-  `user_ID` int(11) DEFAULT NULL
+  `user_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -64,13 +63,9 @@ CREATE TABLE `bmi` (
 --
 
 INSERT INTO `bmi` (`bmi_ID`, `weight`, `height`, `result`, `user_ID`) VALUES
-(1, 40.00, 150.00, 17.78, NULL),
-(2, 39.00, 180.00, 12.04, NULL),
-(3, 37.00, 170.00, 12.80, NULL),
-(4, 34.00, 149.00, 15.31, NULL),
-(6, 50.00, 150.00, 22.22, NULL),
-(7, 30.00, 200.00, 7.50, NULL),
-(8, 65.55, 176.55, 21.39, NULL);
+(24, 50.00, 150.00, 22.22, 105),
+(25, 45.00, 169.00, 15.76, 124),
+(27, 60.00, 175.00, 19.59, 105);
 
 -- --------------------------------------------------------
 
@@ -94,8 +89,10 @@ INSERT INTO `user` (`user_ID`, `nama`, `username`, `password`, `level`) VALUES
 (105, 'user', 'user', 'user', 'user'),
 (111, 'mimin', 'mimin', 'mimin', 'admin'),
 (114, 'Garfield', 'Garfield Junior', 'garfield 123', 'user'),
-(116, 'sahibulloh', 'Rahmat Syahibullah', 'rahmat123', 'user'),
-(117, 'amir', 'Amirullah', 'amir321', 'admin');
+(119, 'abc', 'abc', 'abc', 'admin'),
+(123, 'welcome', 'welcome', 'welcome', 'admin'),
+(124, 'a', 'a', 'a', 'user'),
+(125, 'admin', 'admin', 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -106,14 +103,14 @@ INSERT INTO `user` (`user_ID`, `nama`, `username`, `password`, `level`) VALUES
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`article_ID`),
-  ADD KEY `fk_article_user` (`user_ID`);
+  ADD KEY `user_ID_article` (`user_ID`);
 
 --
 -- Indexes for table `bmi`
 --
 ALTER TABLE `bmi`
   ADD PRIMARY KEY (`bmi_ID`),
-  ADD KEY `fk_user_bmi` (`user_ID`);
+  ADD KEY `user_ID_fk` (`user_ID`);
 
 --
 -- Indexes for table `user`
@@ -129,19 +126,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `article_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `article_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `bmi`
 --
 ALTER TABLE `bmi`
-  MODIFY `bmi_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `bmi_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `user_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- Constraints for dumped tables
@@ -151,14 +148,13 @@ ALTER TABLE `user`
 -- Constraints for table `article`
 --
 ALTER TABLE `article`
-  ADD CONSTRAINT `fk_article_user` FOREIGN KEY (`user_ID`) REFERENCES `user` (`user_ID`),
-  ADD CONSTRAINT `fk_user_article` FOREIGN KEY (`user_ID`) REFERENCES `user` (`user_ID`);
+  ADD CONSTRAINT `user_ID_article` FOREIGN KEY (`user_ID`) REFERENCES `user` (`user_ID`);
 
 --
 -- Constraints for table `bmi`
 --
 ALTER TABLE `bmi`
-  ADD CONSTRAINT `fk_user_bmi` FOREIGN KEY (`user_ID`) REFERENCES `user` (`user_ID`);
+  ADD CONSTRAINT `user_ID_fk` FOREIGN KEY (`user_ID`) REFERENCES `user` (`user_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
